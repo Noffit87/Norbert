@@ -1,0 +1,47 @@
+-- Table: public.autodb
+
+-- DROP TABLE public.autodb;
+
+CREATE TABLE public.autodb
+(
+    autoid integer NOT NULL,
+    clientid integer,
+    rendszam character varying(10) COLLATE pg_catalog."default" NOT NULL,
+	megjegyzes text COLLATE pg_catalog."default",
+    marka character varying(100) COLLATE pg_catalog."default",
+    model character varying(100) COLLATE pg_catalog."default",
+    almodel character varying(100) COLLATE pg_catalog."default",
+    alvazszam character varying(100) COLLATE pg_catalog."default",
+    hengerurtartalom character varying(100) COLLATE pg_catalog."default",
+    sajattomeg character varying(100) COLLATE pg_catalog."default",
+    hajtoanyag character varying(100) COLLATE pg_catalog."default",
+    motorkod character varying(100) COLLATE pg_catalog."default",
+    jarmukategoria character varying(100) COLLATE pg_catalog."default",
+    gyartasiev character varying(4) COLLATE pg_catalog."default",
+    uzembedatum date,
+    szin character varying(100) COLLATE pg_catalog."default",
+    egyuttestomeg character varying(50) COLLATE pg_catalog."default",
+    forgalmilejarat date,
+    km integer,
+    kovszervizdatum date,
+    kovmuszakidatum date,
+    gyartasiev date,
+    teljesitmeny character varying(100) COLLATE pg_catalog."default",
+    sebessegvalto character varying(100) COLLATE pg_catalog."default",
+    ugyfelneve character varying(100) COLLATE pg_catalog."default",
+    kovolajcseredatum date,
+    kolajkm character varying(50) COLLATE pg_catalog."default",
+    kovvezercseredatum date,
+    createdate date,
+    meghajtas character varying(40) COLLATE pg_catalog."default",
+    loero character varying(40) COLLATE pg_catalog."default",
+	status character varying(100) COLLATE pg_catalog."default",
+    createuser character varying(100) COLLATE pg_catalog."default",
+	createdate timestamp without time zone,
+    modifyuser character varying(100) COLLATE pg_catalog."default",
+    modifydate timestamp without time zone,
+    CONSTRAINT pk_autodb PRIMARY KEY (autoid),
+    CONSTRAINT uf_auto FOREIGN KEY (clientid)
+        REFERENCES public.ugyfdb (clientid) MATCH SIMPLE
+        ON UPDATE RESTRICT
+        ON DELETE RESTRICT
